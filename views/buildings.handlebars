@@ -1,0 +1,77 @@
+<h1 align="center">Add a new building</h1>
+
+
+<form id="addBuilding" action="/buildings" method="post">
+	Building Size: 
+		<select name="bsize">
+			<option value="Small">Small</option>
+			<option value="Medium">Medium</option>
+			<option value="Large">Large</option>
+		</select><br>
+	Building Type: 
+		<select name="btype">
+			<option value="Wood">Wood</option>
+			<option value="Brick">Brick</option>
+			<option value="Metal">Metal</option>
+		</select><br> 
+	Garage(Y/N):
+		<input type="radio" name="bgarage" id="yes1" value="1">
+			<label for="yes1">Yes</label>
+		<input type="radio" name="bgarage" id="no1" value="0">
+			<label for="no1">No</label><br>
+	Basement(Y/N):
+		<input type="radio" name="bbasement" id="yes2" value="1">
+			<label for="yes2">Yes</label>
+		<input type="radio" name="bbasement" id="no2" value="0">
+			<label for="no2">No</label><br>
+	City:
+		<select name="bcity">
+			{{#each city}}
+			<option value={{city_id}}>{{name}}</option>
+			{{/each}}
+		</select><br> 
+			
+		<input type="submit" value="Submit">
+</form>
+<br>
+
+
+<h3>Current buildings:</h3>
+<table>
+	<thead>
+		<th>Size</th>
+		<th>Type</th>
+		<th>Garage(Y/N)</th>
+		<th>Basement(Y/N)</th>
+		<th>City</th>
+	</thead>
+	<tbody>
+		{{#each building}}
+		<tr>
+				<td>{{size}}</td>
+				<td>{{type}}</td>
+				
+				{{#if garage}}
+				<td>Yes</td>
+				{{else}}
+				<td>No</td>
+				{{/if}}
+				
+				{{#if basement}}
+				<td>Yes</td>
+				{{else}}
+				<td>No</td>
+				{{/if}}
+				
+				{{#if city}}
+				<td>{{city}}</td>
+				{{else}}
+				<td>None</td>
+				{{/if}}
+				<td><a href="/edit/building/{{building_id}}">Edit</a></td>
+				<td><a href="/delete/building/{{building_id}}">Delete</a></td>
+		</tr>
+		{{/each}}
+	</tbody>
+</table>
+

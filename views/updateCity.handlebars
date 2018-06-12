@@ -1,0 +1,20 @@
+<h1 align="center">Update City</h1>
+
+{{#if city}}
+<h3>Your selected city for updating:</h3>
+
+<form id="updateCity" action="/edit/city/{{city.city_id}}" method="post">
+	Name: 
+		<input type="text" name="cname" value="{{city.name}}"><br>
+	X-Coordinate: 
+		<input type="number" name="xcoord" min="0" max="5000" value="{{city.xcoord}}"><br> 
+	Y-Coordinate: 
+		<input type="number" name="ycoord" min="0" max="5000" value="{{city.ycoord}}"><br>
+	X-Length:
+		<input type="number" name="xlen" min="0" max="1000" value="500" value="{{city.xlength}}"><br>
+	Y-Length:
+		<input type="number" name="ylen" min="0" max="1000" value="500" value="{{city.ylength}}"><br>
+		<input type="submit" value="Update">
+</form>
+{{/if}}
+<br>

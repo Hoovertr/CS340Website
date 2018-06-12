@@ -1,0 +1,33 @@
+<h1 align="center">Add a new item</h1>
+
+<form id="addItem" method="post" action="/items">
+	Item Name:
+		<input type="text" name="iname"><br>
+	Item Type:
+		<input type="text" name="itype" value="Weapon"><br>
+	Item Quantity:
+		<input type="number" name="iquantity" min="1" max="500" value="1"><br>
+	<input type="submit" value="Submit">
+</form>
+<br>
+
+<h3>Current Items:</h3>
+<table>
+	<thead>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Quantity</th>
+	</thead>
+	<tbody>
+		{{#each item}}
+		<tr>
+			<td>{{name}}</td>
+			<td>{{type}}</td>
+			<td>{{quantity}}</td>
+			<td><a href="/edit/item/{{item_id}}">Edit</a></td>
+			<td><a href="/delete/item/{{item_id}}">Delete</a></td>
+		</tr>
+		{{/each}}
+	</tbody>
+</table>
+

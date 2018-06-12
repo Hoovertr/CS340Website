@@ -1,0 +1,45 @@
+<h1 align="center"> Update your characters Items </h1>
+
+{{#if fortChar}}
+<h3>Your character currently has the following items: </h3>
+
+<table border="1">
+	<thead>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Quantity</th>
+	</thead>
+	<tbody>
+		{{#each fortChar}}
+		<tr>
+			<td>{{iname}}</td>
+			<td>{{type}}</td>
+			<td>{{quantity}}</td>
+			<td><a href="/delete/relationship/{{item_id}}/{{character_id}}">Delete</a></td>
+		</tr>
+		{{/each}}
+	</tbody>
+</table>
+
+{{else}}
+<h3>Your character currently has no items </h3>
+{{/if}}
+
+<h3>These are the currently available items: </h3>
+<table>
+	<thead>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Quantity</th>
+	</thead>
+	<tbody>
+		{{#each item}}
+		<tr>
+			<td>{{iname}}</td>
+			<td>{{type}}</td>
+			<td>{{quantity}}</td>
+			<td><a href="/add/relationship/{{item_id}}/{{character_id}}">Add</a></td>
+		</tr>
+		{{/each}}
+	</tbody>
+</table>

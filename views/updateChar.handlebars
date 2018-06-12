@@ -1,0 +1,38 @@
+<h1 align="center">Update Character</h1>
+
+
+{{#if fortChar}}
+<h3>Your selected character for updating:</h3>
+<form id="updateChar" action="/edit/chars/{{fortChar.character_id}}" method="post">
+	Name: 
+		<input type="text" name="cname" value="{{fortChar.name}}"><br>
+	E-mail: 
+		<input type="text" name="cemail" value="{{fortChar.email}}"><br> 
+	Outfit:
+		<select name="coutfit">
+			{{#each outfits}}
+			<option value={{outfit_id}}>{{suit}} + {{backpack}}</option>
+			{{/each}}
+		</select> 
+	{{#if fortChar.outfit}}
+	Currently: Outfit #{{fortChar.outfit}}<br>
+	{{else}}
+	Currently: None<br>
+	{{/if}}
+
+	Building:
+			<select name="cbuilding">
+			{{#each buildings}}
+			<option value={{building_id}}>{{name}} #{{building_id}}</option>
+			{{/each}}
+			</select>
+	{{#if fortChar.building}}
+	Currently: Building #{{fortChar.building}}<br>
+	{{else}}
+	Currently: None<br>
+	{{/if}}
+		<input type="submit" value="Update">
+</form>
+{{/if}}
+<br>
+

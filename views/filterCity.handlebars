@@ -1,0 +1,46 @@
+<h1 align="center">Filter buildings by city</h1>
+
+<h3>Choose a city to filter by:</h3>
+
+<form id="cityFilter" action="/filterCity" method="post">
+	Cities:
+		<select name="citySelect">
+			{{#each cities}}
+			<option value={{city_id}}>{{name}}</option>
+			{{/each}}
+		</select>
+		<input type="submit" value="Submit">
+</form><br>
+
+
+{{#if buildings}}
+<h3>The city you choose has the following buildings in it:</h3>
+<table>
+	<thead>
+		<th>Size</th>
+		<th>Type</th>
+		<th>Garage(Y/N)</th>
+		<th>Basement(Y/N)</th>
+	</thead>
+	<tbody>
+		{{#each buildings}}
+			<tr>
+				<td>{{size}}</td>
+				<td>{{type}}</td>
+				{{#if garage}}
+					<td>Yes</td>
+				{{else}}
+					<td>No</td>
+				{{/if}}
+				{{#if basement}}
+					<td>Yes</td>
+				{{else}}
+					<td>No</td>
+				{{/if}}
+			</tr>
+		{{/each}}
+	</tbody>
+</table>
+{{else}}
+<h3>This city has no buildings in it. Please add some, or choose another city.</h3>
+{{/if}}

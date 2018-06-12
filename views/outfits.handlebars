@@ -1,0 +1,38 @@
+<h1 align="center">Add a new outfit</h1>
+
+
+<form id="addOutfit" action="/outfits" method="post">
+	Backpack:
+		<input type="text" name="obackpack"><br>
+	Suit:
+		<input type="text" name="osuit"><br>
+	Harvesting Tool:
+		<input type="text" name="otool"><br>  
+		<input type="submit" value="Submit">
+</form>
+<br>
+
+<h3>Current outfits:</h3>
+
+<table>
+	<thead>
+		<th>Outfit ID</th>
+		<th>Backpack</th>
+		<th>Suit</th>
+		<th>Harvesting Tool</th>
+	</thead>
+	<tbody>
+		{{#each outfit}}
+		<tr>
+			<td>{{outfit_id}}</td>
+			<td>{{backpack}}</td>
+			<td>{{suit}}</td>
+			<td>{{harvestingTool}}</td>
+			<td><a href="/edit/outfit/{{outfit_id}}">Edit</a></td>
+			<td><a href="/delete/outfit/{{outfit_id}}">Delete</a></td>
+		</tr>
+		{{/each}}
+	</tbody>
+</table>
+
+

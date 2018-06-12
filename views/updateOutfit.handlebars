@@ -1,0 +1,16 @@
+<h1 align="center">Update Outfit</h1>
+
+{{#if outfit}}
+<h3>Your selected city for updating:</h3>
+
+<form id="updateOutfit" action="/edit/outfit/{{outfit.outfit_id}}" method="post">
+	Backpack: 
+		<input type="text" name="backpack" value="{{outfit.backpack}}"><br>
+	Suit: 
+		<input type="text" name="suit" value="{{outfit.suit}}"><br> 
+	Harvesting Tool: 
+		<input type="text" name="harvestingTool" value="{{outfit.harvestingTool}}"><br>
+		<input type="submit" value="Update">
+</form>
+{{/if}}
+<br>

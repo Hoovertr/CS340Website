@@ -1,0 +1,16 @@
+<h1 align="center">Update Item</h1>
+
+{{#if item}}
+<h3>Your selected item for updating:</h3>
+
+<form id="updateItem" action="/edit/item/{{item.item_id}}" method="post">
+	Name: 
+		<input type="text" name="iname" value="{{item.name}}"><br>
+	Type: 
+		<input type="text" name="itype" value="{{item.type}}"><br> 
+	Quantity: 
+		<input type="number" name="iquantity" min="1" max="500" value="{{item.quantity}}"><br>
+		<input type="submit" value="Update">
+</form>
+{{/if}}
+<br>

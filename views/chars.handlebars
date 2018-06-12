@@ -1,0 +1,54 @@
+<h1 align="center">Add a new character</h1>
+
+<form id="addChar" method="post" action="/chars">
+	Name:
+		<input type="text" name="cname"><br>
+	E-mail:
+		<input type="text" name="cemail"><br>
+	Outfit:
+		<select name="coutfit">
+			{{#each outfits}}
+			<option value={{outfit_id}}>{{suit}} + {{backpack}}</option>
+			{{/each}}
+		</select><br>
+	Building:
+		<select name="cbuilding">
+			{{#each building}}
+			<option value="building_id">{{name}}  #{{building_id}}</option>
+			{{/each}}
+		</select><br>
+		<input type="submit" value="Submit">
+</form>
+<br>
+
+<h3>Current Characters:</h3>
+<table border="1">
+	<thead>
+		<th>Name</th>
+		<th>E-mail</th>
+		<th>Outfit</th>
+		<th>Building</th>
+	</thead>
+	<tbody>
+		{{#each fortChar}}
+		<tr>
+			<td>{{charName}}</td>
+			<td>{{email}}</td>
+			{{#if suit}}
+			<td>{{backpack}} + {{suit}} + {{harvestingTool}}</td>
+			{{else}}
+			<td>None</td>
+			{{/if}}
+
+			{{#if bld}}
+			<td>Building #{{bld}}</td>	
+			{{else}}
+			<td>None</td>
+			{{/if}}
+			<td><a href="/edit/chars/{{character_id}}">Edit</a></td>
+			<td><a href="/delete/chars/{{character_id}}">Delete</a></td>
+		</tr>
+		{{/each}}
+	</tbody>
+</table>
+

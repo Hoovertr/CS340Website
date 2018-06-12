@@ -1,0 +1,40 @@
+<h1 align="center">Add a new city</h1>
+
+<h3>Add new city:</h3>
+
+<form id="addCity" action="/cities" method="post">
+	Name: 
+		<input type="text" name="cname"><br>
+	X-Coordinate [0,5000]: 
+		<input type="number" name="xcoord" min="0" max="5000" value="0"><br> 
+	Y-Coordinate [0,5000]:
+		<input type="number" name="ycoord" min="0" max="5000" value="0"><br>
+	X-Length (0,1000]:
+		<input type="number" name="xlen" min="0" max="1000" value="500"><br>
+	Y-Length (0,1000]:
+		<input type="number" name="ylen" min="0" max="1000" value="500"><br>		<input type="submit" value="Submit">
+</form>
+<br>
+<h3>Current cities:</h3>
+<table>
+	<thead>
+		<th>Name</th>
+		<th>X-Coordinate</th>
+		<th>Y-Coordinate</th>
+		<th>X-Length</th>
+		<th>Y-Length</th
+	</thead>
+	<tbody>
+		{{#each city}}
+		<tr>
+			<td>{{name}}</td>
+			<td>{{xcoord}}</td>
+			<td>{{ycoord}}</td>
+			<td>{{xlength}}</td>
+			<td>{{ylength}}</td>
+			<td><a href="/edit/city/{{city_id}}">Edit</a></td>
+			<td><a href="/delete/city/{{city_id}}">Delete</a></td>
+		</tr>
+		{{/each}}
+	</tbody>
+</table>

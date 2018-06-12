@@ -1,0 +1,73 @@
+<h1 align="center">Update Building</h1>
+
+<h3>Your selected building to update:</h3>
+<table>
+	<thead>
+		<th>Size</th>
+		<th>Type</th>
+		<th>Garage(Y/N)</th>
+		<th>Basemment(Y/N)</th>
+		<th>City</th>
+	</thead>
+	<tbody>
+	{{#if building}}
+		<td>{{building.size}}</td>
+		<td>{{building.type}}</td>
+		
+				{{#if garage}}
+				<td>Yes</td>
+				{{else}}
+				<td>No</td>
+				{{/if}}
+				
+				{{#if basement}}
+				<td>Yes</td>
+				{{else}}
+				<td>No</td>
+				{{/if}}
+				
+				{{#if name}}
+				<td>{{name.name}}</td>
+				{{else}}
+				<td>None</td>
+				{{/if}}
+	{{/if}}
+	</tbody>
+</table>
+
+{{#if building}}
+<form id="updateBuilding" action="/edit/building/{{building.building_id}}" method="post">
+{{/if}}
+	Building Size: 
+		<select name="bsize">
+			<option value="Small">Small</option>
+			<option value="Medium">Medium</option>
+			<option value="Large">Large</option>
+		</select><br>
+	Building Type: 
+		<select name="btype">
+			<option value="Wood">Wood</option>
+			<option value="Brick">Brick</option>
+			<option value="Metal">Metal</option>
+		</select><br> 
+	Garage(Y/N):
+		<input type="radio" name="bgarage" id="yes1" value="1">
+			<label for="yes1">Yes</label>
+		<input type="radio" name="bgarage" id="no1" value="0">
+			<label for="no1">No</label><br>
+	Basement(Y/N):
+		<input type="radio" name="bbasement" id="yes2" value="1">
+			<label for="yes2">Yes</label>
+		<input type="radio" name="bbasement" id="no2" value="0">
+			<label for="no2">No</label><br>
+	City:
+		<select name="bcity">
+			{{#each city}}
+			<option value={{city_id}}>{{name}}</option>
+			{{/each}}
+		</select><br> 
+			
+		<input type="submit" value="Update">
+</form>
+<br>
+
